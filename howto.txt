@@ -1,0 +1,71 @@
+Valve hasn't locked down the Steam Deck, so you're free to modify it however you wish. That also means you're free to break things. What do you do if the situation goes sideways?
+
+You're in luck—Valve provides a recovery image that makes it easy to get your device back up and running. Here's how to restore SteamOS to its default settings and leave your Deck good as new.
+What Is a Recovery Image?
+
+A recovery image is a copy of an operating system that you can use to erase and replace the version currently on your device. This will return your device's software to the way it existed when you first took it out of the box (or the way it would exist were you to purchase a Steam Deck today, since the recovery image may be a newer version of SteamOS than the one your Deck shipped with).
+
+You can also use a recovery image to restore a system without completely erasing the entire operating system, such as by clearing user data or opening a terminal to mess around with the system manually.
+Where to Download the Recovery Image
+
+Fortunately, you don't have to hunt around any sketchy file-sharing sites to get your hands on a SteamOS image. Valve makes them available for download directly from the Steam website.
+
+Download: SteamOS Recovery Image
+The EULA displayed before downloading the SteamOS recovery image.
+
+The image is close to 3GB in size, so make sure you have a stable internet connection and can leave your computer running long enough for the download to finish.
+How to Prepare a Bootable USB Stick
+
+How do you get this image onto your Steam Deck? You need to create a bootable USB stick. So if you haven't already, get your hands on a flash drive. Make sure it has a capacity of at least 8GB, and don't grab a stick with files you need to preserve. As part of this process, you will completely wipe the contents of the USB stick.
+
+Then you will likely need to get your hands on specialized software. There are several tools to help you create a bootable USB drive on Windows. Though if you want to keep things simple, you can create a bootable USB stick using Etcher regardless of your operating system.
+
+For Linux, Valve also provides a one-line command that does the job without you having to install anything extra. Just open a terminal and enter:
+
+ 
+bzcat steamdeck-recovery-4.img.bz2 | sudo dd if=/dev/stdin of=/dev/sdX oflag=sync status=progress bs=128M
+ 
+
+You may need to replace steamdeck-recovery-4.img.bz2 with the complete path to the file, such as /home/user/Downloads/steamdeck-recovery-4.img.bz2. Also replace /dev/sdX with the correct drive, such as /dev/sdb.
+
+If you aren't sure how to get this information, you can do that from the terminal as well with the following command (assuming you've already inserted your USB drive):
+
+ 
+lsblk
+ 
+
+How to Boot From a USB Stick on a Steam Deck
+
+The Steam Deck has a USB-C port, which leaves you with a few options to access your USB drive. If your USB drive has a USB-C connector, then you're all set.
+
+Plug in your flash drive, shut down your Steam Deck and then press the Power button while holding the Volume Down button. Let go of Volume Down after you hear the chime. This process will turn on your device and open the Boot Manager rather than the usual Steam interface.
+
+If your flash drive doesn't have a USB-C connector, you're not out of luck. If you have a USB-C adapter, plug your drive into that and then your Deck. If you don't have an adapter, that's where a dock comes in.
+
+The official Steam Deck Docking Station is arguably the best dock for your Steam Deck, but any other USB-C dock is likely to work well enough for this task, too.
+A Steam Deck plugged into the official docking station with a USB drive attached.
+
+On the boot menu, select the EFI USB Device option (which you can do using the D-Pad and A Button). This tells the Steam Deck to boot from your USB drive. The top option is your device's internal memory. Clicking this would initiate the standard boot into SteamOS.
+
+At this point, your device should boot up into a complete graphical environment similar to the Steam Deck's Desktop Mode.
+A Look at the Four Recovery Options
+A Steam Deck booting the SteamOS recovery image.
+
+The recovery image's desktop is pretty bare, but it does include four shortcuts. Let's go over these to make sure you're selecting the right option for you.
+1. Clear Local User Data
+
+This will wipe your home partition, which stores your downloaded games and any personal files that you've added in Desktop Mode. Your system configuration settings will also go away. But the recovery image won't touch your system files, so you can be sure your device will still boot.
+2. Reimage Steam Deck
+
+This performs a factory reset. Clicking here will proceed to wipe everything from your device. This includes your account information, your game files, and anything you've installed or downloaded in the device's Desktop Mode.
+3. Reinstall SteamOS
+
+Before you completely blow away all the data on your device, you may want to see if you can fix your problem by wiping the system files without touching your personal data. This can get you back up and running without having to re-download all of your games.
+4. Terminal With Repair Tools
+
+This desktop shortcut will open a terminal that you can use to make changes to the system, specifically the Steam Deck's boot partition. This is the most technical option and not the one most people would need. But if there's a specific task you want to do, here's how you get access to the command line.
+Should You Expect to Have to Fix Your Steam Deck?
+
+If you're just using your Deck to play Steam games, then you probably won't need to know how to get your device back in normal working order.
+
+But there's so much more that you can do with a Deck. Whether you've disabled the device's read-only mode to make modifications to the system or you've replaced the stock OS with Windows, there are plenty of ways you can venture far from the out-of-the-box experience. And if that happens, you now know what to do to get your device back to how it once was.
